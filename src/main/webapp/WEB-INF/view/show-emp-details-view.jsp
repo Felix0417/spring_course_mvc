@@ -7,12 +7,15 @@
 <br>
 <br>
 
-    Your name = ${employee.name}
+    Your name: ${employee.name}
     <br>
-    Your surname = ${employee.surname}
+    Your surname: ${employee.surname}
     <br>
-    Yur salary = ${employee.salary}
-
+    Your salary: ${employee.salary}
+    <br>
+    Your department: ${employee.department}
+    <br>
+    Your car: ${employee.carBrand}
 </h1>
 
 </body>

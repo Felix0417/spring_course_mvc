@@ -13,6 +13,14 @@
     <br><br>
     Salary <form:input path="salary"/>
     <br><br>
+    Department <form:select path="department">
+    <form:options items="${employee.departments.keySet()}"/>
+    </form:select>
+    <br><br>
+    Which car do yo want
+    <br>
+    <form:radiobuttons path="carBrand" items="${employee.carBrands.keySet()}"/>
+    <br><br>
 
     <input type="submit" value="Ok">
 
