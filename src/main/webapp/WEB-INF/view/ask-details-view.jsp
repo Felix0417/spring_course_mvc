@@ -21,9 +21,12 @@
     <br>
     <form:radiobuttons path="carBrand" items="${employee.carBrands.keySet()}"/>
     <br><br>
+    Foreign Language(s):
+    <br>
+    <form:checkboxes path="languages" items="${employee.languageList.keySet()}"/>
+    <br><br>
 
     <input type="submit" value="Ok">
-
 
 </form:form>
 
