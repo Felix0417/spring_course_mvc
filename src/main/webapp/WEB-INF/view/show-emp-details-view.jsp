@@ -22,8 +22,10 @@
     <br>
 
     <c:forEach var="lang" items="${employee.languages}">
-        <li> ${lang} </li>
+        <li> - ${lang} </li>
     </c:forEach>
+
+    Phone Number: ${employee.phoneNumber}
 </h1>
 
 </body>

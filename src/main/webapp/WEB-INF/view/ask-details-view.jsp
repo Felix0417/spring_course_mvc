@@ -16,6 +16,7 @@
 
     <br><br>
     Salary <form:input path="salary"/>
+    <form:errors path="salary" cssStyle="color: firebrick"/>
     <br><br>
     Department <form:select path="department">
     <form:options items="${employee.departments.keySet()}"/>
@@ -27,10 +28,13 @@
     <br><br>
     Foreign Language(s):
     <br>
-    <form:checkboxes path="languages" items="${employee.languageList.keySet()}"/>
+    <form:checkboxes path="languages" items="${employee.languageList.values()}"/>
+    <br><br>
+    Phone number, start with '9' <form:input path="phoneNumber"/>
+    <form:errors path="phoneNumber" cssStyle="color: firebrick"/>
     <br><br>
 
-    <input type="submit" value="Ok">
+    <input type="submit" value="OK">
 
 </form:form>
 

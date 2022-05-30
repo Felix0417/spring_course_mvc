@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 @RequestMapping("/employee")
@@ -29,6 +32,20 @@ public class MyController {
         if (bindingResult.hasErrors()) {
             return "ask-details-view";
         } else {
+            String[] tempNumb = employee.getPhoneNumber().split("");
+            StringBuilder actualPhoneNumber = new StringBuilder("+7(");
+            int i = 0;
+            for (String a: tempNumb){
+                if (i == 3){
+                    actualPhoneNumber.append(")");
+                }
+                if (i == 6 || i == 8){
+                    actualPhoneNumber.append("-");
+                }
+                actualPhoneNumber.append(a);
+                i++;
+            }
+            employee.setPhoneNumber(actualPhoneNumber.toString());
             return "show-emp-details-view";
         }
     }

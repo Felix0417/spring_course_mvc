@@ -1,17 +1,18 @@
 package com.felix.spring.mvc;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Employee {
 
-    @Size(min = 2, message = "Name must be more 2 symbols!")
+    @Size(min = 2, message = "Field 'name' must be more 2 symbols!")
     private String name;
 
-    @NotBlank(message = "field 'surname' is required")
+    @NotBlank(message = "Field 'surname' is required!")
     private String surname;
+    @Min(value = 500, message = "This field must be greater than 499!")
+    @Max(value = 1000, message = "This field must be less than 1001!")
     private int salary;
     private String department;
     private Map<String, String> departments;
@@ -19,6 +20,9 @@ public class Employee {
     private Map<String, String> carBrands;
     private String[] languages;
     private Map<String, String> languageList;
+
+    @Pattern(regexp = "^9\\d{9}", message = "Your number must contains 10 digits. First is '9'. For example 9012345678")
+    private String phoneNumber;
 
 
     public Employee() {
@@ -28,7 +32,7 @@ public class Employee {
         departments.put("Sales", "Sales");
 
         carBrands = new HashMap<>();
-        carBrands.put("VW", "VolksWagen");
+        carBrands.put("VW", "Volkswagen");
         carBrands.put("Skoda", "Skoda");
         carBrands.put("Fiat", "Fiat");
 
@@ -108,6 +112,14 @@ public class Employee {
 
     public void setLanguageList(Map<String, String> languageList) {
         this.languageList = languageList;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
